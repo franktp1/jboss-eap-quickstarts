@@ -13,10 +13,11 @@ RUN mkdir -p /opt/Tivoli/monitoring/logs && \
 
 USER jboss
 
-COPY pnst/module.xml /opt/eap/modules/system/layers/base/org/postgresql/main
-RUN ls -ltr /opt/eap/modules/system/layers/base/org/postgresql/main
+COPY pnst/module.xml /opt/eap/modules/system/layers/base/org/postgresql/main/module.xml
+RUN ls -ltr /opt/eap/modules/system/layers/base/org/postgresql/main/*
 RUN  curl -L -X GET 'http://nexus3.tools.svc.cluster.local:8081/service/rest/v1/search/assets/download?sort=version&repository=maven-releases&group=org.database.driver&name=postgresql&maven.baseVersion=0.1&maven.extension=jar' \
-  --output /opt/eap/modules/system/layers/base/org/postgresql/main/postgresql-42.2.16.jar
+  --output /opt/eap/modules/system/layers/base/org/postgresql/main/postgresql-42.2.jar
+RUN mv /opt/eap/modules/system/layers/base/org/postgresql/main/postgresql-42.2.jar /opt/eap/modules/system/layers/base/org/postgresql/main/postgresql-42.2.16.jar
 
 # Create the Postgres jdbc driver
 RUN mkdir -p /opt/eap/modules/system/layers/base/org/postgresql/main
