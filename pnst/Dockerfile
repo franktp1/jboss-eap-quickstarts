@@ -9,7 +9,7 @@ RUN mkdir -p /opt/Tivoli/monitoring/logs && \
 	mkdir -p /weblogic && \
 	chmod a+w /data/weblogic/pnst/logs && \
 	chmod a+w /weblogic
-COPY module.xml /opt/eap/modules/system/layers/base/org/postgresql/main
+COPY pnst/module.xml /opt/eap/modules/system/layers/base/org/postgresql/main
 RUN  curl -L -X GET 'http://nexus3.tools.svc.cluster.local:8081/service/rest/v1/search/assets/download?sort=version&repository=maven-releases&group=org.database.driver&name=postgresql&maven.baseVersion=0.1&maven.extension=jar' \
   --output /opt/eap/modules/system/layers/base/org/postgresql/main/postgresql-42.2.16.jar
 
