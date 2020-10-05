@@ -455,8 +455,7 @@
                 </in-vm-acceptor>
                 <jms-queue name="ExpiryQueue" entries="java:/jms/queue/ExpiryQueue"/>
                 <jms-queue name="DLQ" entries="java:/jms/queue/DLQ"/>
-<!--
-                <jms-queue name="testQueue" entries="java:jboss/exported/jms/queue/test jms/queue/test" durable="true"/>
+				<jms-queue name="testQueue" entries="java:jboss/exported/jms/queue/test jms/queue/test" durable="true"/>
                 <jms-queue name="Queue_IFC_ASB_DESTINATION_PNST" entries="java:jboss/exported/jms/queue/stt jms/queue/stt" durable="true"/>
                 <jms-queue name="Queue_IFC_ASB_DESTINATION" entries="java:jboss/exported/jms/queue/sttrequest jms/queue/sttrequest" durable="true"/>
                 <jms-topic name="testTopic" entries="java:jboss/exported/jms/topic/test jms/topic/test"/>
@@ -465,7 +464,6 @@
                 <connection-factory name="InVmConnectionFactory" entries="java:/ConnectionFactory" connectors="in-vm"/>
                 <connection-factory name="RemoteConnectionFactory" entries="java:jboss/exported/jms/RemoteConnectionFactory" connectors="http-connector"/>
                 <pooled-connection-factory name="activemq-ra" entries="java:/JmsXA java:jboss/DefaultJMSConnectionFactory" connectors="in-vm" transaction="xa"/>
-		-->
             </server>
         </subsystem>
         <subsystem xmlns="urn:wildfly:microprofile-config-smallrye:1.0"/>
@@ -479,66 +477,7 @@
             <http-connector name="http-remoting-connector" connector-ref="default" security-realm="ApplicationRealm"/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:request-controller:1.0"/>
-        <subsystem xmlns="urn:jboss:domain:resource-adapters:5.0">
-    <resource-adapters>
-        <resource-adapter id="activemq">
-            <archive>
-                activemq-rar-5.11.0.rar
-            </archive>
-            <transaction-support>XATransaction</transaction-support>
-            <config-property name="ServerUrl">
-                tcp://asb:61616
-            </config-property>
-            <config-property name="UserName">
-                admin
-            </config-property>
-            <config-property name="UseInboundSession">
-                false
-            </config-property>
-            <config-property name="Password">
-                admin
-            </config-property>
-            <connection-definitions>
-                <connection-definition class-name="org.apache.activemq.ra.ActiveMQManagedConnectionFactory" jndi-name="java:/JMS_ConnectionFactory_PNST" enabled="true" pool-name="JMS_ConnectionFactory_PNST">
-                    <xa-pool>
-                        <min-pool-size>1</min-pool-size>
-                        <max-pool-size>20</max-pool-size>
-                        <prefill>false</prefill>
-                        <is-same-rm-override>false</is-same-rm-override>
-                    </xa-pool>
-                </connection-definition>
-            </connection-definitions>
-            <admin-objects>
-                <admin-object class-name="org.apache.activemq.command.ActiveMQTopic" jndi-name="java:jboss/activemq/topic/Topic_RCP_PNST" use-java-context="true" pool-name="TestTopic">
-                    <config-property name="PhysicalName">
-                        activemq/topic/Topic_RCP_PNST
-                    </config-property>
-                </admin-object>
-                <admin-object class-name="org.apache.activemq.command.ActiveMQTopic" jndi-name="java:jboss/activemq/topic/test" use-java-context="true" pool-name="TestTopic">
-                    <config-property name="PhysicalName">
-                        activemq/topic/test
-                    </config-property>
-                </admin-object>
-                <admin-object class-name="org.apache.activemq.command.ActiveMQQueue" jndi-name="java:/activemq/queue/sttrequest" use-java-context="true" pool-name="TestQueue">
-                    <config-property name="PhysicalName">
-                        activemq/queue/sttrequest
-                    </config-property>
-                </admin-object>
-                <admin-object class-name="org.apache.activemq.command.ActiveMQQueue" jndi-name="java:/activemq/queue/stt" use-java-context="true" pool-name="TestQueue">
-                    <config-property name="PhysicalName">
-                        activemq/queue/stt
-                    </config-property>
-                </admin-object>
-                <admin-object class-name="org.apache.activemq.command.ActiveMQQueue" jndi-name="java:/activemq/queue/test" use-java-context="true" pool-name="TestQueue">
-                    <config-property name="PhysicalName">
-                        activemq/queue/test
-                    </config-property>
-                </admin-object>
-            </admin-objects>
-        </resource-adapter>
-    </resource-adapters>
-  
-	  
+        <subsystem xmlns="urn:jboss:domain:resource-adapters:5.0"/>
         <subsystem xmlns="urn:jboss:domain:sar:1.0"/>
         <subsystem xmlns="urn:jboss:domain:security:2.0">
             <security-domains>
