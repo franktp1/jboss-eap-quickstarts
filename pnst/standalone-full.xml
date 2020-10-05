@@ -431,6 +431,7 @@
                 <smtp-server outbound-socket-binding-ref="mail-smtp"/>
             </mail-session>
         </subsystem>
+<!--
         <subsystem xmlns="urn:jboss:domain:messaging-activemq:4.0">
             <server name="default">
                 <journal pool-files="10"/>
@@ -455,8 +456,8 @@
                 </in-vm-acceptor>
                 <jms-queue name="ExpiryQueue" entries="java:/jms/queue/ExpiryQueue"/>
                 <jms-queue name="DLQ" entries="java:/jms/queue/DLQ"/>
-<!--
-                <jms-queue name="testQueue" entries="java:jboss/exported/jms/queue/test jms/queue/test" durable="true"/>
+
+		<jms-queue name="testQueue" entries="java:jboss/exported/jms/queue/test jms/queue/test" durable="true"/>
                 <jms-queue name="Queue_IFC_ASB_DESTINATION_PNST" entries="java:jboss/exported/jms/queue/stt jms/queue/stt" durable="true"/>
                 <jms-queue name="Queue_IFC_ASB_DESTINATION" entries="java:jboss/exported/jms/queue/sttrequest jms/queue/sttrequest" durable="true"/>
                 <jms-topic name="testTopic" entries="java:jboss/exported/jms/topic/test jms/topic/test"/>
@@ -465,9 +466,11 @@
                 <connection-factory name="InVmConnectionFactory" entries="java:/ConnectionFactory" connectors="in-vm"/>
                 <connection-factory name="RemoteConnectionFactory" entries="java:jboss/exported/jms/RemoteConnectionFactory" connectors="http-connector"/>
                 <pooled-connection-factory name="activemq-ra" entries="java:/JmsXA java:jboss/DefaultJMSConnectionFactory" connectors="in-vm" transaction="xa"/>
-		-->
-            </server>
+
+	    </server>
         </subsystem>
+-->
+
         <subsystem xmlns="urn:wildfly:microprofile-config-smallrye:1.0"/>
         <subsystem xmlns="urn:wildfly:microprofile-health-smallrye:1.0" security-enabled="false"/>
         <subsystem xmlns="urn:wildfly:microprofile-opentracing-smallrye:1.0"/>
