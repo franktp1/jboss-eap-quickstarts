@@ -14,8 +14,9 @@ RUN mkdir -p /opt/Tivoli/monitoring/logs && \
 USER jboss
 
 # copy the activemq-rar-5.11.0.redhat-630187.rar
+# note; there was one already !?!  unknown version
 #RUN  curl -L -X GET 'http://nexus3.tools.svc.cluster.local:8081/service/rest/v1/search/assets/download?sort=version&repository=maven-releases&group=activemq.lib&name=mqrar&maven.baseVersion=5.11&maven.extension=jar' \
-#  --output /opt/eap/modules/system/layers/base/org/activemq-rar/main/activemq-rar-5.11.0.rar
+#  --output /opt/eap/standalone/deployments/activemq-rar.rar
 
 # Create the Postgres jdbc driver
 COPY pnst/module.xml /opt/eap/modules/system/layers/base/org/postgresql/main/module.xml
