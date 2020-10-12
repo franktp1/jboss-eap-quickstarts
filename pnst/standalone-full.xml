@@ -163,7 +163,7 @@
                     </security>
                 </datasource>
 				<datasource jndi-name="java:jboss/postgres/DxDataSource_Zuid_70MB_PNST" pool-name="java:jboss/DxDataSource_Zuid_70MB_PNST" statistics-enabled="true">
-                    <connection-url>jdbc:postgresql://pdb:5432/PNST</connection-url>
+                    <connection-url>jdbc:postgresql://pnst-db.pnstdatabase:5432/PNST</connection-url>
                     <driver>postgresql</driver>
                     <security>
                         <user-name>PNST_OWNER</user-name>
