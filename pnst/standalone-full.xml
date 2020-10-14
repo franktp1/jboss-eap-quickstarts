@@ -455,10 +455,10 @@
                 <in-vm-acceptor name="in-vm" server-id="0">
                     <param name="buffer-pooling" value="false"/>
                 </in-vm-acceptor>
-<!--
                 <jms-queue name="ExpiryQueue" entries="java:/jms/queue/ExpiryQueue"/>
                 <jms-queue name="DLQ" entries="java:/jms/queue/DLQ"/>
-		<jms-queue name="testQueue" entries="java:jboss/exported/jms/queue/test jms/queue/test" durable="true"/>
+		<jms-queue name="myTestQueue" entries="java:jboss/exported/jms/queue/myTest jms/queue/myTest" durable="true"/>
+<!--
                 <jms-queue name="Queue_IFC_ASB_DESTINATION_PNST" entries="java:jboss/exported/jms/queue/stt jms/queue/stt" durable="true"/>
                 <jms-queue name="Queue_IFC_ASB_DESTINATION" entries="java:jboss/exported/jms/queue/sttrequest jms/queue/sttrequest" durable="true"/>
                 <jms-topic name="testTopic" entries="java:jboss/exported/jms/topic/test jms/topic/test"/>
@@ -490,7 +490,7 @@
 		<external-context name="java:global/remoteContext" module="org.apache.activemq.artemis" class="javax.naming.InitialContext">
 		  <environment>
 		    <property name="java.naming.factory.initial" value="org.apache.activemq.artemis.jndi.ActiveMQInitialContextFactory"/>
-		    <property name="java.naming.provider.url" value="tcp://127.0.0.1:61616"/>
+		    <property name="java.naming.provider.url" value="tcp://asb:61616"/>
 		    <property name="queue.MyQueue" value="MyQueue"/>
 		    <property name="queue.MyOtherQueue" value="MyOtherQueue"/>
 		    <property name="topic.MyTopic" value="MyTopic"/>
