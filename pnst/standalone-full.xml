@@ -493,7 +493,7 @@
 		  <environment>
 		    <property name="java.naming.factory.initial" value="org.apache.activemq.artemis.jndi.ActiveMQInitialContextFactory"/>
 		    <property name="java.naming.provider.url" value="tcp://asb:61616"/>
-		    <property name="connectionFactory.ConnectionFactory" value="tcp://asb:61616"/> <!-- found somewhere -->
+		    <property name="connectionFactory.ConnectionFactory" value="tcp://127.0.0.1:61616"/> <!-- found somewhere -->
 		    <property name="queue.MyQueue" value="MyQueue"/>
 		    <property name="queue.MyOtherQueue" value="MyOtherQueue"/>
 		    <property name="topic.MyTopic" value="MyTopic"/>
